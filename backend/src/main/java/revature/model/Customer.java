@@ -1,5 +1,7 @@
 package revature.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
+@JsonIdentityInfo(
+        //this is to stop recursive hibernate joins
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +33,7 @@ public class Customer {
     private String LastName;
     @Column
     private Address address;
-    @Column
+    @Column(unique = true)
     private String email;
     @Column
     private long number;

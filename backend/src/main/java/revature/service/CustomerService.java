@@ -26,20 +26,30 @@ public class CustomerService {
     public Customer findCustomerByUserNameAndPassWord(String userName, String passWord){
         return customerRepository.findByUserNameAndPassWord(userName,passWord);
     }
-    public Customer save(Customer customer){
-        return customerRepository.save(customer);
+    public Boolean save(Customer customer){
+        try{
+            customerRepository.save(customer);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
-    public Customer update(Car car, int id){
-        Customer customer = customerRepository.findById(id).get();
-        car.setCustomer(customer);
-        customer.getCars().add(car);
-        return save(customer);
-    }
+//    public Customer update(Car car, int id){
+//        Customer customer = customerRepository.findById(id).get();
+//        car.setCustomer(customer);
+//        customer.getCars().add(car);
+//        return save(customer);
+//    }
     public void delete(Customer customer)
     {
         customerRepository.delete(customer);
     }
     public Customer getById(int id){
         return customerRepository.getById(id);
+    }
+    public Customer signIn(String username,String password){
+        Customer customer = findCustomerByUserNameAndPassWord(username,password);
+//       System.out.println(customer.getCars());
+        return customer;
     }
 }
