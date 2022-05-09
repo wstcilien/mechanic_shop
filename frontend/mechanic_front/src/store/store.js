@@ -1,9 +1,13 @@
-import { createStore } from "@reduxjs/toolkit";
 
-import storage from "redux-persist/lib/storage";
+const initialState ={
+    id:0,
+    firstname:"",
+    address:[],
+    email:"",
+    number:000000000,
+    username:"",
+    passWord:"",
+    cars:[],
+    lastName:""
 
-const persistConfig = {
-    key:'main-root',
-    storage
 }
-const store = createStore()

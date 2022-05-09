@@ -8,7 +8,7 @@ import revature.service.CustomerService;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 public class Controller {
 
@@ -16,7 +16,6 @@ public class Controller {
     CarService carServicev;
     @Autowired
     CustomerService customerService;
-
     @PostMapping("/SignIn")
     public Customer signIn(@RequestHeader(name = "username") String username,@RequestHeader(name = "password") String password){
 //        System.out.println(username);

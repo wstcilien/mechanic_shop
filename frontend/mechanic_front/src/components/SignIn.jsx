@@ -8,7 +8,20 @@ function SignIn() {
   const password = useRef(null);
   const url = config.url;
   const login = () => {
-    fetch(url).then(res =>{console.log(res.data)}).catch()
+    const header = {
+      "Content-Type": "application/json",
+      username: username.current.value,
+      password: password.current.value,
+    };
+    console.log(username.current.value, password.current.value);
+
+    fetch(`${url}SignIn`, {
+      method: "POST",
+      headers: header,
+    }).then((res) =>
+        res.json())
+      .then((bd) => console.log(bd))
+      .catch();
   };
   return (
     <div className='center'>
@@ -19,7 +32,7 @@ function SignIn() {
       </div>
       <div className='txt_field'>
         <label>Password:</label>
-        <input name='passWord' type='password' required />
+        <input type='password' ref={password} required />
       </div>
       <div className='pass'>Forgot Password?</div>
       <button className='submit' onClick={login}>

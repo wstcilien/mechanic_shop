@@ -7,6 +7,7 @@ import revature.model.Customer;
 import revature.repository.CustomerRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Component
 @Scope("prototype")
@@ -49,7 +50,7 @@ public class CustomerService {
     }
     public Customer signIn(String username,String password){
         Customer customer = findCustomerByUserNameAndPassWord(username,password);
-//       System.out.println(customer.getCars());
-        return customer;
+//       System.out.println(customer);
+        return Objects.requireNonNullElseGet(customer, Customer::new);
     }
 }
