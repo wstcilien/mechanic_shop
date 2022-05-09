@@ -24,7 +24,7 @@ function Navbar() {
             className='row container-fluid'
             style={{ color: "white", textAlign: "left" }}
           >
-            <a href='' className='navbar-brand'>
+            <a href='/' className='navbar-brand'>
               Home
             </a>
             <a className='navbar-brand'>Products</a>
