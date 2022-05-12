@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import config from "../config";
+import img from "../images/img1.jpg";
 
 function SignIn() {
   const username = useRef(null);
@@ -18,30 +19,34 @@ function SignIn() {
     fetch(`${url}SignIn`, {
       method: "POST",
       headers: header,
-    }).then((res) =>
-        res.json())
+    })
+      .then((res) => res.json())
       .then((bd) => console.log(bd))
       .catch();
   };
   return (
-    <div className='center'>
-      <h1> Login</h1>
-      <div className='txt_field'>
-        <label className='lable lable-secondary'>Username:</label>
-        <input type='text' ref={username} required />
-      </div>
-      <div className='txt_field'>
-        <label>Password:</label>
-        <input type='password' ref={password} required />
-      </div>
-      <div className='pass'>Forgot Password?</div>
-      <button className='submit' onClick={login}>
-        {" "}
-        Login
-      </button>
+    <div className='content'>
+      <h1>SignIn Form</h1>
+      <div className='col'>
+        <div className='col'>
+          <label className='w-100'>Username:</label>
+          <input className='w-100' />
+        </div>
+        <div className='col'>
+          <label className='w-100'>Password:</label>
+          <input className='w-100' />
+        </div>
 
-      <div className='signup_link'>
-        Not a member? <a href='register'>Signup</a>
+        <div className='col'>
+          <a href='/resetPassword'>forgot password?</a>
+          <label className='w-100'>
+            Not a user, signup <a href='/register'>Here</a>!
+          </label>
+        </div>
+      </div>
+
+      <div className='submitB1'>
+        <input type='submit' value='SignIn' />
       </div>
     </div>
   );

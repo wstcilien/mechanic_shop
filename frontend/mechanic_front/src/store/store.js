@@ -4,10 +4,11 @@ const initialState ={
     firstname:"",
     address:[],
     email:"",
-    number:000000000,
-    username:"",
-    passWord:"",
+    number:0,
+    username:"gfhgf",
+    password:"",
     cars:[],
     lastName:""
 
 }
+export default initialState;

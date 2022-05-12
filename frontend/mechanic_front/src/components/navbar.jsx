@@ -1,7 +1,10 @@
 /** @format */
 
-function Navbar() {
-  const name = "Walter";
+import { Link, useNavigate } from "react-router-dom";
+
+function Navbar(props) {
+  const name = props.value.value[0].username;
+  const navigate = useNavigate();
   function updateRegisterbtn(name) {
     if (name) {
       return "SignOut";
@@ -9,29 +12,42 @@ function Navbar() {
       return "Register";
     }
   }
+  function updateSignInbtn(name) {
+    if (name) {
+      return name;
+    } else {
+      return "SignIn";
+    }
+  }
   function logOutColor(boolean) {
     if (boolean) {
-      return "btn btn-danger";
+      return "btn btn-danger visually-hidden";
     } else {
       return "btn btn-primary";
     }
   }
   return (
     <>
-      <nav className='navbar bg-dark'>
-        <div className='row container-fluid'>
+      <nav className='navbar sticky-top bg-dark'>
+        <div className='row container-fluid' style={{ paddingRight: "0px" }}>
           <div
             className='row container-fluid'
             style={{ color: "white", textAlign: "left" }}
           >
-            <a href='/' className='navbar-brand'>
-              Home
-            </a>
-            <a className='navbar-brand'>Products</a>
+            <Link to='/'>
+              <button className='btn btn-dark navbar-brand' type='button'>
+                Home
+              </button>
+            </Link>
+            <Link to='/products'>
+              <button className='btn btn-dark navbar-brand' type='button'>
+                Products
+              </button>
+            </Link>
             <div className='col-1.5'>
               <div className='dropdown'>
                 <button
-                  class='btn btn-dark navbar-brand dropdown-toggle'
+                  className='btn btn-dark navbar-brand dropdown-toggle'
                   type='button'
                   id='dropdownMenuButton1'
                   data-bs-toggle='dropdown'
@@ -39,44 +55,74 @@ function Navbar() {
                 >
                   Vehicles
                 </button>
-                <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
+                <ul
+                  className='dropdown-menu'
+                  aria-labelledby='dropdownMenuButton1'
+                >
                   <li>
-                    <a class='dropdown-item' href='/cars'>
+                    <a className='dropdown-item' href='/cars'>
                       Cars
                     </a>
                   </li>
                   <li>
-                    <a class='dropdown-item' href='/cars/addcar'>
+                    <a className='dropdown-item' href='/cars/addcar'>
                       Addd Car
                     </a>
                   </li>
                   <li>
-                    <a class='dropdown-item' href='/cars/removecar'>
+                    <a className='dropdown-item' href='/cars/removecar'>
                       Remove Car
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-            <a className='navbar-brand'>History</a>
-            <a className='navbar-brand'>Settings</a>
+            <Link to='/history'>
+              <button className='btn btn-dark navbar-brand' type='button'>
+                History
+              </button>
+            </Link>
+            <Link to='/settings'>
+              <button className='btn btn-dark navbar-brand ' type='button'>
+                Settings
+              </button>
+            </Link>
             <div
-            className='col container-fluid l-5'
-            style={{ textAlign: "right" }}
-          >
-            <button className='btn btn-primary'>SignIn</button>
-            <button
-              className={logOutColor(name)}
-              style={{ marginLeft: "10px" }}
+              className='col container-fluid l-5'
+              style={{ textAlign: "right" }}
             >
-              {updateRegisterbtn(name)}
-            </button>
+              <button onClick={signInHomeEvent} className='btn btn-primary'>
+                {updateSignInbtn(name)}
+              </button>
+              <button
+                onClick={registerSignOutEvent}
+                className={logOutColor(name)}
+                style={{ marginLeft: "15px" }}
+              >
+                {updateRegisterbtn(name)}
+              </button>
+            </div>
           </div>
-          </div>
-          
         </div>
       </nav>
     </>
   );
+  function signInHomeEvent() {
+    if (name) {
+      navigate("/");
+    } else {
+      navigate("/SignIn");
+    }
+  }
+  function registerSignOutEvent() {
+    if (name) {
+      console.log(props)
+      props.value.value[1]("");
+      navigate("/");
+    } else {
+      navigate("/Register");
+    }
+  }
 }
 export default Navbar;
+// hr@revature.com

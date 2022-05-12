@@ -1,23 +1,23 @@
 /** @format */
 
-import imgs from "../images/proffesionals.jpg";
+import imgs from "../images/professionals.jpg";
 import img from "../images/background.jpg";
 function Home() {
   return (
     <div
       className='col '
-      style={{ justifyContent: "center", width: "100%", marginTop: "2%" }}
+      style={{ justifyContent: "center", width: "100%", marginTop: "1%" }}
     >
-      <div className='container' style={{ justifyContent: "center" }}>
+      <div className="container" >
         <div
           id='carouselExampleCaptions'
-          class='carousel slide'
+          className='carousel slide'
           data-bs-ride='carousel'
         >
-          <div class='carousel-inner'>
-            <div class='carousel-item active'>
-              <img src={imgs} class='d-block w-100' alt='...' />
-              <div class='carousel-caption d-none d-md-block'>
+          <div className='carousel-inner '>
+            <div className='carousel-item  active'>
+              <img src={imgs} className='d-block w-100' alt='...' />
+              <div className='carousel-caption d-none d-md-block'>
                 <h3>First slide label</h3>
                 <p>
                   You don't have to wait for your vehicle to get fixed, not a
@@ -26,18 +26,18 @@ function Home() {
                 </p>
               </div>
             </div>
-            <div class='carousel-item'>
-              <img src={imgs} class='d-block w-100' alt='...' />
-              <div class='carousel-caption d-none d-md-block'>
+            <div className='carousel-item'>
+              <img src={imgs} className='d-block w-100' alt='...' />
+              <div className='carousel-caption d-none d-md-block'>
                 <h3>Second slide label</h3>
                 <p>
                   Some representative placeholder content for the second slide.
                 </p>
               </div>
             </div>
-            <div class='carousel-item'>
-              <img src={img} class='d-block w-100' alt='...' />
-              <div class='carousel-caption d-none d-md-block'>
+            <div className='carousel-item'>
+              <img src={img} className='d-block w-100' alt='...' />
+              <div className='carousel-caption d-none d-md-block'>
                 <h3>Third slide label</h3>
                 <p>
                   Some representative placeholder content for the third slide.
@@ -49,6 +49,7 @@ function Home() {
       </div>
       <div className='row' style={{ justifyContent: "center" }}>
         <h1 style={{ color: "white" }}>Services</h1>
+        
       </div>
     </div>
   );
