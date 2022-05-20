@@ -13,6 +13,7 @@ const initialState ={
 }
 export function userReducer(state = initialState, action) {
     const body = action.action;
+    console.log(body)
 
 	switch (action.type) {
 		case "LOGOUT_USER":

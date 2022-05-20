@@ -2,13 +2,13 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignIn from "./components/SignIn";
-import store from "./store/store";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Main from "./components/Main";
 import Register from "./components/Register";
 
 function App() {
 
+  
   return (
     <BrowserRouter>
       {/* <Navbar /> */}

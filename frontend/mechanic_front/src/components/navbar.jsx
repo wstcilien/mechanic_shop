@@ -63,19 +63,19 @@ function Navbar() {
                   aria-labelledby='dropdownMenuButton1'
                 >
                   <li>
-                    <a className='dropdown-item' href='/cars'>
-                      Cars
-                    </a>
+                  <Link to={'/cars/cars'}>
+                      <div className="container"><label>Car List</label></div>
+                      </Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='/cars/addcar'>
-                      Addd Car
-                    </a>
+                      <Link to={'/cars/addcar'}>
+                      <div className="container"><label>Add a car</label></div>
+                      </Link>
                   </li>
                   <li>
-                    <a className='dropdown-item' href='/cars/removecar'>
-                      Remove Car
-                    </a>
+                  <Link to={'/cars/remove'}>
+                      <div className="container"><label>Remove a car</label></div>
+                      </Link>
                   </li>
                 </ul>
               </div>
