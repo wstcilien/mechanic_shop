@@ -1,14 +1,5 @@
+import { createStore } from "@reduxjs/toolkit";
+import { userReducer } from "./userReducer";
 
-const initialState ={
-    id:0,
-    firstname:"",
-    address:[],
-    email:"",
-    number:0,
-    username:"gfhgf",
-    password:"",
-    cars:[],
-    lastName:""
-
-}
-export default initialState;
+const store = createStore(userReducer)
+export default store

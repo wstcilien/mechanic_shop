@@ -1,9 +1,10 @@
 /** @format */
 
 import { Link, useNavigate } from "react-router-dom";
+import store from "../store/store";
 
-function Navbar(props) {
-  const name = props.value.value[0].username;
+function Navbar() {
+  const name = store.getState().userName;
   const navigate = useNavigate();
   function updateRegisterbtn(name) {
     if (name) {
@@ -28,7 +29,9 @@ function Navbar(props) {
   }
   return (
     <>
-      <nav className='navbar sticky-top bg-dark'>
+      <nav className='navbar navbar-expand-md sticky-top bg-dark'>
+       
+        
         <div className='row container-fluid' style={{ paddingRight: "0px" }}>
           <div
             className='row container-fluid'
@@ -116,8 +119,8 @@ function Navbar(props) {
   }
   function registerSignOutEvent() {
     if (name) {
-      console.log(props)
-      props.value.value[1]("");
+      store.dispatch({type:"LOGOUT_USER"})
+      window.localStorage.clear();
       navigate("/");
     } else {
       navigate("/Register");

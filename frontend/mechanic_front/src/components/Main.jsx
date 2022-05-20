@@ -1,12 +1,12 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./navbar";
 import Home from "./Home";
 
+function Main() {
 
-function Main(params) {
     return(
         <>
-            <Navbar value ={params}/>
+            <Navbar/>
             <Routes>
             <Route path="/" element={<Home/>}/>
             </Routes>
