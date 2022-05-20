@@ -29,81 +29,102 @@ function Navbar() {
   }
   return (
     <>
-      <nav className='navbar navbar-expand-md sticky-top bg-dark'>
-       
-        
-        <div className='row container-fluid' style={{ paddingRight: "0px" }}>
-          <div
-            className='row container-fluid'
-            style={{ color: "white", textAlign: "left" }}
+      <nav class='navbar navbar-expand-lg sticky-top navbar-dark bg-dark'>
+        <div class='container-fluid'>
+          <Link to='/'>
+            <button className='btn btn-dark navbar-brand' type='button'>
+              Home
+            </button>
+          </Link>
+          <button
+            class='navbar-toggler'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#navbarTogglerDemo02'
+            aria-controls='navbarTogglerDemo02'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
           >
-            <Link to='/'>
-              <button className='btn btn-dark navbar-brand' type='button'>
-                Home
-              </button>
-            </Link>
-            <Link to='/products'>
-              <button className='btn btn-dark navbar-brand' type='button'>
-                Products
-              </button>
-            </Link>
-            <div className='col-1.5'>
-              <div className='dropdown'>
-                <button
-                  className='btn btn-dark navbar-brand dropdown-toggle'
-                  type='button'
-                  id='dropdownMenuButton1'
-                  data-bs-toggle='dropdown'
-                  aria-expanded='false'
-                >
-                  Vehicles
-                </button>
-                <ul
-                  className='dropdown-menu'
-                  aria-labelledby='dropdownMenuButton1'
-                >
-                  <li>
-                  <Link to={'/cars/cars'}>
-                      <div className="container"><label>Car List</label></div>
-                      </Link>
-                  </li>
-                  <li>
-                      <Link to={'/cars/addcar'}>
-                      <div className="container"><label>Add a car</label></div>
-                      </Link>
-                  </li>
-                  <li>
-                  <Link to={'/cars/remove'}>
-                      <div className="container"><label>Remove a car</label></div>
-                      </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <Link to='/history'>
-              <button className='btn btn-dark navbar-brand' type='button'>
-                History
-              </button>
-            </Link>
-            <Link to='/settings'>
-              <button className='btn btn-dark navbar-brand ' type='button'>
-                Settings
-              </button>
-            </Link>
-            <div
-              className='col container-fluid l-5'
-              style={{ textAlign: "right" }}
-            >
+            <span class='navbar-toggler-icon'></span>
+          </button>
+          <div class='collapse navbar-collapse' id='navbarTogglerDemo02'>
+            <ul class='navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll'>
+              <li className="nav-item">
+                <Link to='/products'>
+                  <button className='btn btn-dark navbar-brand' type='button'>
+                    Products
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <div className='col-1.5'>
+                  <div className='dropdown'>
+                    <button
+                      className='btn btn-dark navbar-brand dropdown-toggle'
+                      type='button'
+                      id='dropdownMenuButton1'
+                      data-bs-toggle='dropdown'
+                      aria-expanded='false'
+                    >
+                      Vehicles
+                    </button>
+                    <ul
+                      className='dropdown-menu'
+                      aria-labelledby='dropdownMenuButton1'
+                    >
+                      <li>
+                        <Link to={"/cars/cars"}>
+                          <div className='container'>
+                            <label>Car List</label>
+                          </div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to={"/cars/addcar"}>
+                          <div className='container'>
+                            <label>Add a car</label>
+                          </div>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to={"/cars/remove"}>
+                          <div className='container'>
+                            <label>Remove a car</label>
+                          </div>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <Link to='/history'>
+                  <button className='btn btn-dark navbar-brand' type='button'>
+                    History
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link to='/settings'>
+                  <button className='btn btn-dark navbar-brand ' type='button'>
+                    Settings
+                  </button>
+                </Link>
+              </li>
+            </ul>
+            <div className='col' >
+              <div className="row justify-content-md-start justify-content-lg-end ">
               <button onClick={signInHomeEvent} className='btn btn-primary'>
                 {updateSignInbtn(name)}
               </button>
               <button
                 onClick={registerSignOutEvent}
                 className={logOutColor(name)}
-                style={{ marginLeft: "15px" }}
+                style={{ marginLeft: "10px" }}
               >
                 {updateRegisterbtn(name)}
               </button>
+              </div>
             </div>
           </div>
         </div>
@@ -119,7 +140,7 @@ function Navbar() {
   }
   function registerSignOutEvent() {
     if (name) {
-      store.dispatch({type:"LOGOUT_USER"})
+      store.dispatch({ type: "LOGOUT_USER" });
       window.localStorage.clear();
       navigate("/");
     } else {
