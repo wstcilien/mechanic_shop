@@ -8,13 +8,12 @@ const initialState ={
     passWord:"",
     cars:[],
     lastName:"",
-    isLoggedIn:false
+    isLoggedIn:false,
+    token:""
 
 }
 export function userReducer(state = initialState, action) {
     const body = action.action;
-    console.log(body)
-
 	switch (action.type) {
 		case "LOGOUT_USER":
 			return {
@@ -29,13 +28,12 @@ export function userReducer(state = initialState, action) {
         case "SIGNIN_USER":
             return{
                 ...state,
-                id: body.id,
                 firstName:body.firstName,
                 address:body.address,
                 email:body.email,
                 number:body.number,
                 userName:body.userName,
-                passWord:body.passWord,
+                passWord:body.passWord, 
                 cars:body.cars,
                 lastName:body.lastName,
                 isLoggedIn:true

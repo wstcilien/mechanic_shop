@@ -2,6 +2,7 @@
 
 import imgs from "../images/professionals.jpg";
 import img from "../images/background.jpg";
+import Services from "./Services"
 function Home() {
   return (
     <div
@@ -47,10 +48,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className='row' style={{ justifyContent: "center" }}>
-        <h1 style={{ color: "white" }}>Services</h1>
-        
-      </div>
+      <Services/>
     </div>
   );
 }

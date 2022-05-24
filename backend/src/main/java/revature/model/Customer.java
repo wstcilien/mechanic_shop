@@ -43,6 +43,8 @@ public class Customer {
     private String passWord;
     @OneToMany(mappedBy ="customer", fetch = FetchType.EAGER)
     private List<Car> cars = new ArrayList<>();
+    @Column(unique = true)
+    private String token;
 
     @Override
     public String toString() {

@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./navbar";
 import Home from "./Home";
+import Vehicle from "./Vehicle";
 import { useEffect } from "react";
 import store from "../store/store";
 
@@ -13,12 +14,13 @@ function Main() {
                 action:JSON.parse(data)
               })
         }
-      })
+      },[])
     return(
         <>
-            <Navbar/>
+            <Navbar />
             <Routes>
             <Route path="/" element={<Home/>}/>
+            <Route path="/vehicle" element={<Vehicle/>}/>
             </Routes>
         </>
     );
