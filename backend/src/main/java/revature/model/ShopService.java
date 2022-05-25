@@ -1,25 +1,28 @@
 package revature.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="shop")
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
+@JsonIdentityInfo(
+        //this is to stop recursive hibernate joins
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class ShopService {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column
+    @Column(unique = true)
     private String name;
     @Column
     private int imgURL;
@@ -27,6 +30,18 @@ public class ShopService {
     private int rating;
     @Column
     private String type;
-    @ManyToOne()
+    @OneToMany(mappedBy = "shop")
     private List<Product> products;
+
+    public void setRating(){
+        int totalRating =0;
+       if(products!=null){
+           if(products.size()>0){
+               for(Product p:products){
+                   totalRating+=p.getRating();
+               }
+               this.rating = totalRating/products.size();
+           }
+       }
+    }
 }
