@@ -2,8 +2,8 @@
 
 import imgs from "../images/professionals.jpg";
 import img from "../images/background.jpg";
-import Services from "./Services"
-function Home() {
+import Services from "./services/Services"
+function Home(props) {
   return (
     <div
       className='col '
@@ -48,7 +48,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <Services/>
+      <Services click={(service)=>props.click(service)}/>
     </div>
   );
 }

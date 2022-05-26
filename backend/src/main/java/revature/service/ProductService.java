@@ -1,6 +1,7 @@
 package revature.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import revature.model.Product;
 import revature.model.ShopService;
@@ -10,6 +11,7 @@ import java.util.List;
 
 
 @Component
+@Scope("prototype")
 public class ProductService {
     @Autowired
     ProductsRepository productsRepository;

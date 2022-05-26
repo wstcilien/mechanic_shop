@@ -1,6 +1,7 @@
 package revature.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 import revature.model.Product;
 import revature.model.ShopService;
@@ -17,9 +18,8 @@ public class AdminController {
     @Autowired
     ProductService productService;
 
-
     @GetMapping("/")
-    public List<List<ShopService>> getAllServicesAndProducts(){
+    public List<ShopService>getAllServicesAndProducts(){
         return shopServiceService.findAll();
     }
     @PostMapping("/admin/add/service")

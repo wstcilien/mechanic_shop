@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @JsonIdentityInfo(
         //this is to stop recursive hibernate joins
         generator = ObjectIdGenerators.PropertyGenerator.class,
@@ -30,7 +31,7 @@ public class ShopService {
     private int rating;
     @Column
     private String type;
-    @OneToMany(mappedBy = "shop")
+    @OneToMany(mappedBy = "shop", fetch = FetchType.EAGER)
     private List<Product> products;
 
     public void setRating(){
