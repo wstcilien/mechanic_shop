@@ -26,7 +26,7 @@ public class ShopService {
     @Column(unique = true)
     private String name;
     @Column
-    private int imgURL;
+    private String imgURL;
     @Column
     private int rating;
     @Column

@@ -33,5 +33,33 @@ public class ShopServiceService {
     public ShopService findByName(String name){
         return shopServiceRepository.findByName(name);
     }
+    public Boolean update(String name,ShopService service){
+        if(name==null| service == null){
+            return false;
+        }
+        ShopService shop = shopServiceRepository.findByName(name);
+        service.setId(shop.getId());
+        if(service.getProducts()!=null){
+            List<Product> list = new ArrayList<>();
+            list.addAll(service.getProducts());
+            list.addAll(shop.getProducts());
+            shop.setProducts(list);
+        }
+        if(service.getType()!=null){
+            shop.setType(service.getType());
+        }
+        if(service.getImgURL()!= null){
+            shop.setImgURL(service.getImgURL());
+        }
+        if(service.getName()!=null){
+            shop.setName(service.getName());
+        }
+        try{
+            shopServiceRepository.save(shop);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
 
+    }
 }

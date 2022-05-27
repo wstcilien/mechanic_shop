@@ -30,4 +30,8 @@ public class AdminController {
     public Boolean addProduct(@RequestBody Product body, @RequestHeader(name = "name")String name){
         return productService.addProduct(body,name);
     }
+    @PatchMapping("/admin/update/service")
+    public Boolean updateService(@RequestHeader(name = "name") String serviceName,@RequestBody ShopService shopService){
+        return shopServiceService.update(serviceName,shopService);
+    }
 }

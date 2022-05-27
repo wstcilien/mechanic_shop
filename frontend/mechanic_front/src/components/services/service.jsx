@@ -1,5 +1,5 @@
 /** @format */
-import img from "../../images/image"
+import img from "../../images/serviceImages"
 import ReactStars from "react-rating-stars-component";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ export default function Service(props) {
     props.value.products
   );
   return (
-      <div className='col-sm-3 col-md-3 col-lg-2 m-3 bg-dark'style={{"borderRadius":"10px"}}>
+      <div className='col-sm-4 col-md-3 col-lg-2 m-3 bg-dark'style={{"borderRadius":"10px"}}>
         <div className='w-100'>
           <img className="img-thumbnail mt-3" src={img[index]} alt='image of service' />
         </div>

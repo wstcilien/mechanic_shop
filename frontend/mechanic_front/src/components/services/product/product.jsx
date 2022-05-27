@@ -1,6 +1,6 @@
 
 
-import img from "../../../images/image"
+import img from "../../../images/productImages"
 import ReactStars from "react-rating-stars-component";
 
 export default function Product(params) {
