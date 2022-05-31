@@ -25,7 +25,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
-    private int imgURL;
+    private String imgURL;
     @Column(unique = true)
     private String name;
     @Column
@@ -35,21 +35,22 @@ public class Product {
     @Column
     @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     private List<Comments> comments;
+    @Column
+    private String description;
     @ManyToOne
     private ShopService shop;
 
-    public void setRating(){
+    public int getRating(){
         int totalRate =0;
-       if(this.comments!=null ){
-           if(this.comments.size()>0){
-               for(Comments c: comments){
-                   totalRate+=c.getRating();
-               }
-               this.rating = totalRate/comments.size();
-           }
-       }else{
-           this.rating = totalRate;
-       }
+        if(this.comments!=null ){
+            if(this.comments.size()>0){
+                for(Comments c: comments){
+                    totalRate+=c.getRating();
+                }
+                totalRate = totalRate/comments.size();
+            }
+        }
+        return totalRate;
     }
 
     @Override

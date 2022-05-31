@@ -4,7 +4,7 @@ import Home from "./Home";
 import Vehicle from "./Vehicle";
 import {useState, useEffect } from "react";
 import store from "../store/store";
-import Products from "./services/product/products";
+import Products from "./product/productsPage";
 
 function Main() {
     const navigate = useNavigate();
@@ -25,13 +25,13 @@ function Main() {
             <Routes>
             <Route path="/" element={<Home click= {(service)=>toProducts(service)}/>}/>
             <Route path="/vehicle" element={<Vehicle/>}/>
-            <Route path="/services/products/*" element={<Products services={services}/>}/>
+            <Route path="/services/*" element={<Products services={services}/>}/>
             </Routes>
         </>
     );
     function toProducts(params) {
         setServices(params)
-        navigate("/services/products/"+params.name)
+        navigate("/services/"+params.name)
 
     }
 }

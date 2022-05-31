@@ -23,7 +23,7 @@ function Navbar() {
     if (name) {
       return name;
     } else {
-      return "Sign In";
+      return "Sign  In";
     }
   }
   function logOutColor(boolean) {

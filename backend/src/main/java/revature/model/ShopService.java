@@ -34,15 +34,16 @@ public class ShopService {
     @OneToMany(mappedBy = "shop", fetch = FetchType.EAGER)
     private List<Product> products;
 
-    public void setRating(){
+    public int getRating(){
         int totalRating =0;
        if(products!=null){
            if(products.size()>0){
                for(Product p:products){
                    totalRating+=p.getRating();
                }
-               this.rating = totalRating/products.size();
+               totalRating = totalRating/products.size();
            }
        }
+       return totalRating;
     }
 }

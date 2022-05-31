@@ -2,7 +2,7 @@
 
 import imgs from "../images/professionals.jpg";
 import img from "../images/background.jpg";
-import Services from "./services/Services"
+import Services from "./services/ServicesPage"
 function Home(props) {
   return (
     <div

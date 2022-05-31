@@ -26,9 +26,13 @@ public class AdminController {
     public Boolean addService(@RequestBody ShopService body){
         return shopServiceService.save(body);
     }
-    @PatchMapping("/admin/add/service/product")
-    public Boolean addProduct(@RequestBody Product body, @RequestHeader(name = "name")String name){
+    @PostMapping("/admin/add/product")
+    public Boolean addProduct(@RequestBody List<Product> body, @RequestHeader(name = "name")String name){
         return productService.addProduct(body,name);
+    }
+    @PatchMapping("/admin/update/product")
+    public Boolean updateProduct(@RequestBody Product body,@RequestHeader(name = "name")String productName){
+        return productService.updateProduct(body,productName);
     }
     @PatchMapping("/admin/update/service")
     public Boolean updateService(@RequestHeader(name = "name") String serviceName,@RequestBody ShopService shopService){

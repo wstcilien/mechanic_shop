@@ -39,12 +39,7 @@ public class ShopServiceService {
         }
         ShopService shop = shopServiceRepository.findByName(name);
         service.setId(shop.getId());
-        if(service.getProducts()!=null){
-            List<Product> list = new ArrayList<>();
-            list.addAll(service.getProducts());
-            list.addAll(shop.getProducts());
-            shop.setProducts(list);
-        }
+
         if(service.getType()!=null){
             shop.setType(service.getType());
         }

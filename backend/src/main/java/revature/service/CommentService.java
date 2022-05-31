@@ -26,8 +26,6 @@ public class CommentService {
                 return false;
             }else{
                 comments.setProduct(product);
-                product.setRating();
-                product.getShop().setRating();
                 commentRepository.save(comments);
                 return true;
             }

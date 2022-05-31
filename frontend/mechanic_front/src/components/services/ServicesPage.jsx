@@ -1,7 +1,7 @@
 /** @format */
 
 import store from "../../store/store";
-import Service from "./service";
+import Service from "./servicePage";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import config from "../../config";

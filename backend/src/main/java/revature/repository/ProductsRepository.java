@@ -16,4 +16,6 @@ public interface ProductsRepository extends JpaRepository<Product,Integer> {
     List<Product> findAll();
     @Query("from Product where id = :productId")
     Product findById(int productId);
+    @Query("from Product where name = :productName")
+    Product findByName(String productName);
 }
