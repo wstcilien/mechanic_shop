@@ -1,9 +1,11 @@
 # mechanic-shop
-This is a basic backend for a mechanic shop web application.
+This is a fullstack mechanic shop web application.
 
 For this project we were given an open-ended prompt .
 
 In this project I:
+
+# Backend
 
 *I Leveraged Hibernate for database persistence
 
@@ -17,8 +19,20 @@ In this project I:
 
 *I mplemented Object-Oriented Programming (OOP) to structure the Project
 
-*I Created a server with Tomcat and java.
+*I Utilized spring MVC
+
+*I Utilized SpringBoot for auto-configuration
 
 *I Utilized Junit to unit test the program.
 
-*I Utilized log4j to document events by the user and errors.
+# Frontend
+
+*I Utilized react to create a spa (Single Page Application)
+
+*I Utilized toasts for notifications
+
+*I Utilized redux to centralize the storage of data fecth from the backend and other apis
+
+*I Utilized hoocks to handle states
+
+*I Utilized BootStrap to manage the design/layout
